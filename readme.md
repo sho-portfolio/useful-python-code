@@ -53,4 +53,31 @@ if pAttachment != None:
 newMail.display(False) #This can be True if you want to see the email
 newMail.Send()
 
-  ```
+ ```
+
+
+
+### Save dataframe as html file (formated with css)
+
+```python
+
+# get css stylesheet
+with open('css/myCssFile.css', 'r') as myfile:
+     style = myfile.read()
+
+# build html
+h = '<html><head><style>' + style + ' </style></head><body>'
+
+# global variables report
+h += "</br><h4> My Title </h2>" 
+
+h += df.to_html(classes='general') + "</br>" #change this to whatever the style sheet specifies it as
+
+h += '</body></html>'
+
+# create html report file
+text_file = open("myHtmlFile.html", "w")
+text_file.write(h)
+text_file.close()
+```
+

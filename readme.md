@@ -1,7 +1,5 @@
 ### Write dataframes to multiple Excel worksheets
 
-
-
 ```python
 
 # from: https://xlsxwriter.readthedocs.io/example_pandas_multiple.html
@@ -25,3 +23,34 @@ df3.to_excel(writer, sheet_name='Sheet3')
 writer.save()
 
 ```
+
+
+### Send Outlook Email from Python
+
+```python
+
+# from: https://gist.github.com/ITSecMedia/b45d21224c4ea16bf4a72e2a03f741af
+
+import win32com.client
+from win32com.client import Dispatch, constants
+
+pSubject = "My Subject"
+pAttachment = r"C:\Temp\example.pdf"
+pBody = <br/>my body text</br>
+
+const=win32com.client.constants
+olMailItem = 0x0
+obj = win32com.client.Dispatch("Outlook.Application")
+newMail = obj.CreateItem(olMailItem)
+newMail.Subject = pSubject
+# newMail.Body = "I AM\nTHE BODY MESSAGE!"
+newMail.BodyFormat = 2 # olFormatHTML https://msdn.microsoft.com/en-us/library/office/aa219371(v=office.11).aspx
+newMail.HTMLBody = pBody #"<HTML><BODY>Enter the <span style='color:red'>message</span> text here.</BODY></HTML>"
+newMail.To = "abc@abc.com; xyz@xyz.com"
+if pAttachment != None:
+    attachment1 =  pAttachment  # r"C:\Temp\example.pdf"
+    newMail.Attachments.Add(Source=attachment1)
+newMail.display(False) #This can be True if you want to see the email
+newMail.Send()
+
+  ```

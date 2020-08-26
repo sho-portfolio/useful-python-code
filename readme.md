@@ -81,3 +81,25 @@ text_file.write(h)
 text_file.close()
 ```
 
+### Make a file read-only but make it writeable when you need to write to it
+
+```python
+
+# https://en.wikipedia.org/wiki/Chmod
+# https://stackoverflow.com/questions/28492685/change-file-to-read-only-mode-in-python
+
+import os
+from stat import S_IREAD, S_IRGRP, S_IROTH, S_IWOTH, S_IWUSR, S_IWRITE, S_IWGRP
+
+# if file exists make it writeable
+if os.path.exists("myFile.txt"):
+    os.chmod('myFile.txt', S_IWUSR|S_IWRITE|S_IWGRP|S_IWOTH)
+
+# create file and write, or append to file if it exists
+text_file = open("myFile.txt", "a")
+text_file.write("hello")
+text_file.close()
+
+# make file read-only
+os.chmod('myFile.txt', S_IREAD|S_IRGRP|S_IROTH)
+```

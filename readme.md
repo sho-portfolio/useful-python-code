@@ -145,6 +145,9 @@ print(args)
 print (args.paramA.split(','))
 print (args.paramB)
 ```
+- Namespace(paramA='x,y,z', paramB=5)
+- ['x', 'y', 'z']
+- 5
 
 ```python
 # PART 3
@@ -156,7 +159,9 @@ print(args)
 print (args.paramA.split(','))
 print (args.paramB)
 ```
-
+- Namespace(paramA='A,B,CDE', paramB=10)
+- ['A', 'B', 'CDE']
+- 10
 
 
 

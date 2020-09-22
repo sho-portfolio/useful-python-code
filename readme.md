@@ -121,7 +121,7 @@ if __name__ == '__main__':  # this ensures won't be run when imported otherwise 
     parser.add_argument("-a", "--paramA", type=str, default = "A,B,CDE")
     parser.add_argument("-b", "--paramB", type=int, default = 99)
 
-    args = parser.parse_args("") # <-- THE EMPTY QUOTES ARE NEEDED FOR JUPYTER NOTEBOOK
+    args = parser.parse_args("") # <-- THE EMPTY QUOTES ARE NEEDED FOR JUPYTER NOTEBOOK - REMOVE THEM IN THE .PY FILE (ELSE IT WON'T WORK)
 
     # print out the arguments passed in (convert the string to a list)
     if args.paramA:

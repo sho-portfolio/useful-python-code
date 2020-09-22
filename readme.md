@@ -103,3 +103,56 @@ text_file.close()
 # make file read-only
 os.chmod('myFile.txt', S_IREAD|S_IRGRP|S_IROTH)
 ```
+
+
+
+### How to handle arguments/parameters passed to python
+
+```python
+# PART 1
+import argparse
+
+if __name__ == '__main__':  # this ensures won't be run when imported otherwise it is by default
+    
+    parser = argparse.ArgumentParser()
+
+    # create 2 arguments to pass in, one of type int and of type string (but to be used as a list) and set default values
+    parser.add_argument("-a", "--paramA", type=str, default = "A,B,CDE")
+    parser.add_argument("-b", "--paramB", type=int, default = 99)
+
+    args = parser.parse_args("") # <-- THE EMPTY QUOTES ARE NEEDED FOR JUPYTER NOTEBOOK
+
+    # print out the arguments passed in (convert the string to a list)
+    if args.paramA:
+        print ('u:', args.paramA.split(','))
+        print (type(args.paramA.split(',')))
+
+    if args.paramB:
+        print ('m', args.paramB)
+        
+
+
+```python
+# PART 2
+# simulate passing in different argument values than the defualt
+args = parser.parse_args("-a x,y,z -b 5".split())
+
+print(args)
+print (args.paramA.split(','))
+print (args.paramB)
+
+
+```python
+# PART 3
+
+# simulate passing in different argument values than the defualt for only one of the arguments
+args = parser.parse_args("-b 10".split())
+
+print(args)
+print (args.paramA.split(','))
+print (args.paramB)
+
+
+
+
+

@@ -131,7 +131,9 @@ if __name__ == '__main__':  # this ensures won't be run when imported otherwise 
     if args.paramB:
         print ('m', args.paramB)
  ```       
-
+- u: ['A', 'B', 'CDE']
+- <class 'list'>
+- m 99
 
 ```python
 # PART 2

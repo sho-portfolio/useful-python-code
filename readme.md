@@ -129,7 +129,7 @@ if __name__ == '__main__':  # this ensures won't be run when imported otherwise 
 
     if args.paramB:
         print ('m', args.paramB)
-        
+ ```       
 
 
 ```python
@@ -140,7 +140,7 @@ args = parser.parse_args("-a x,y,z -b 5".split())
 print(args)
 print (args.paramA.split(','))
 print (args.paramB)
-
+```
 
 ```python
 # PART 3
@@ -151,7 +151,7 @@ args = parser.parse_args("-b 10".split())
 print(args)
 print (args.paramA.split(','))
 print (args.paramB)
-
+```
 
 
 

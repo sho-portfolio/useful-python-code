@@ -110,6 +110,7 @@ os.chmod('myFile.txt', S_IREAD|S_IRGRP|S_IROTH)
 
 ```python
 # PART 1
+
 import argparse
 
 if __name__ == '__main__':  # this ensures won't be run when imported otherwise it is by default
@@ -134,6 +135,7 @@ if __name__ == '__main__':  # this ensures won't be run when imported otherwise 
 
 ```python
 # PART 2
+
 # simulate passing in different argument values than the defualt
 args = parser.parse_args("-a x,y,z -b 5".split())
 

@@ -165,3 +165,16 @@ print (args.paramB)
 
 
 
+
+### How to group dataframe data (how to rename columns and get multiple aggregations for the same column)
+```python
+
+# https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
+
+df.groupby(['country_code', 'country_name']).agg(
+    max_pop=('population_2010', max),
+    min_pop=('population_2010', min),
+    total_pop=('population_2010', sum),
+    avg_pop=('population_2010', np.mean),
+)
+```

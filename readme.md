@@ -1,3 +1,17 @@
+### Import Data from Excel to Dataframe
+
+```python
+
+import pandas as pd
+
+df = pd.read_excel (r'SampleData.xlsx')
+print (df)
+
+```
+
+
+
+
 ### Write dataframes to multiple Excel worksheets
 
 ```python
